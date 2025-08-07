@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <div>
+            <h1>Enter Product Details</h1>
+            <div>
+                <form action="AddProduct.php" method="post" >
+                    <input name="title" placeholder="Product Name" type="text" required>
+                    <br>
+                    <textarea name="description" placeholder="Add product description" rows="4" cols="50"></textarea><br>
+                    <input name="discounted_price" placeholder="Add discounted price" type="text" required>
+                    <input name="original_price" placeholder="Add original price" type="text" required><br>
+                    <input name="catogary" placeholder="Catogary" type="text" required>
+                    <br>
+                    <input type="file" name="fileToUpload" id="fileToUpload">
+                    <br>
+                    <input type="file" name="fileToUpload2" id="fileToUpload2">
+                    <br>
+                    <input type="submit" value="Submit Product">
+                    
+                    
+                </form>
+            </div>
+            
+        </div>
+        
+        
+        <script src="" async defer></script>
+    </body>
+</html>

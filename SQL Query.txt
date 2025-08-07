@@ -1,0 +1,70 @@
+#######################  Login Table ################################
+
+CREATE TABLE Login_seq
+(
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY
+);
+
+********
+CREATE TABLE Login
+(
+  ID VARCHAR(7) NOT NULL PRIMARY KEY DEFAULT '0',Name varchar(30),Password varchar(15),Email varchar(50));
+
+*********
+DELIMITER $$
+CREATE TRIGGER tg_Login_insert
+BEFORE INSERT ON Login
+FOR EACH ROW
+BEGIN
+  INSERT INTO Login_seq VALUES (NULL);
+  SET NEW.id = CONCAT('L', LPAD(LAST_INSERT_ID(), 5, '0'));
+END$$
+DELIMITER ;
+
+
+#######################  Product Table ################################
+
+CREATE TABLE Product_seq
+(
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY
+);
+
+********
+CREATE TABLE Product
+(
+  ID VARCHAR(7) NOT NULL PRIMARY KEY DEFAULT '0',Title varchar(30),Description varchar(50),Discounted_Price int(5),Original_Price int(5),catogary(20));
+
+*********
+DELIMITER $$
+CREATE TRIGGER tg_Product_insert
+BEFORE INSERT ON Product
+FOR EACH ROW
+BEGIN
+  INSERT INTO Product_seq VALUES (NULL);
+  SET NEW.id = CONCAT('P', LPAD(LAST_INSERT_ID(), 5, '0'));
+END$$
+DELIMITER ;
+
+#######################  Cart Table ################################
+
+CREATE TABLE Cart_seq
+(
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY
+);
+
+********
+CREATE TABLE Cart
+(
+  ID VARCHAR(7) NOT NULL PRIMARY KEY DEFAULT '0',product_id varchar(8),Title varchar(30),Price int(15),Quantity int(20));
+
+*********
+DELIMITER $$
+CREATE TRIGGER tg_Cart_insert
+BEFORE INSERT ON Cart
+FOR EACH ROW
+BEGIN
+  INSERT INTO Cart_seq VALUES (NULL);
+  SET NEW.id = CONCAT('C', LPAD(LAST_INSERT_ID(), 5, '0'));
+END$$
+DELIMITER ;
+
